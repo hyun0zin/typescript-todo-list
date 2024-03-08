@@ -2,10 +2,14 @@ import styled from "styled-components";
 import { Todo } from "../../types/TodoType";
 interface TodoItemProps {
   todo: Todo;
+  deleteTodo: (id: string) => void;
+  toggleTodo: (id: string) => void;
 }
 
-function TodoItem({ todo }: TodoItemProps) {
-  const { title, content, deadline } = todo;
+function TodoItem({ todo, deleteTodo, toggleTodo }: TodoItemProps) {
+  const { title, content, deadline, id, isDone } = todo;
+  const onClickDeleteBtn = () => deleteTodo(id);
+  const onClickToggleBtn = () => toggleTodo(id);
 
   return (
     <TodoCardItem>
@@ -16,8 +20,8 @@ function TodoItem({ todo }: TodoItemProps) {
           <time>{deadline}</time>
         </div>
         <div>
-          <button>삭제</button>
-          <button>완료</button>
+          <button onClick={onClickDeleteBtn}>삭제</button>
+          <button onClick={onClickToggleBtn}>{isDone ? "취소" : "완료"}</button>
         </div>
       </article>
     </TodoCardItem>

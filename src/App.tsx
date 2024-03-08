@@ -4,14 +4,25 @@ import TodoList from "./\bcomponents/Todos/TodoList";
 import { useTodos } from "./hooks/useTodos";
 
 function App() {
-  const { todos, addTodo } = useTodos();
+  const { addTodo, deleteTodo, toggleTodo, inProgressTodos, doneTodos } =
+    useTodos();
 
   return (
     <main>
       <Header />
       <TodoForm addTodo={addTodo} />
-      <TodoList todoTitle="Working...🔥" todos={todos} />
-      <TodoList todoTitle="Done🎉" todos={todos} />
+      <TodoList
+        todoTitle="Working...🔥"
+        todos={inProgressTodos}
+        deleteTodo={deleteTodo}
+        toggleTodo={toggleTodo}
+      />
+      <TodoList
+        todoTitle="Done🎉"
+        todos={doneTodos}
+        deleteTodo={deleteTodo}
+        toggleTodo={toggleTodo}
+      />
     </main>
   );
 }

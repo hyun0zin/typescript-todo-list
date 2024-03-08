@@ -4,21 +4,28 @@ import TodoItem from "./TodoItem";
 interface TodoListProps {
   todoTitle: string;
   todos: Todo[];
+  deleteTodo: (id: string) => void;
+  toggleTodo: (id: string) => void;
 }
 
-function TodoList({ todoTitle, todos }: TodoListProps) {
+function TodoList({ todoTitle, todos, deleteTodo, toggleTodo }: TodoListProps) {
   return (
-    <section>
+    <>
       <h2>{todoTitle}</h2>
 
       <div>
         <ul>
           {todos.map((todo) => (
-            <TodoItem key={todo.id} todo={todo} />
+            <TodoItem
+              key={todo.id}
+              todo={todo}
+              deleteTodo={deleteTodo}
+              toggleTodo={toggleTodo}
+            />
           ))}
         </ul>
       </div>
-    </section>
+    </>
   );
 }
 
