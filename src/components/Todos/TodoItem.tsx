@@ -12,24 +12,34 @@ function TodoItem({ todo, deleteTodo, toggleTodo }: TodoItemProps) {
   const onClickToggleBtn = () => toggleTodo(id);
 
   return (
-    <TodoCardItem>
+    <TodoCardContainer>
       <article>
-        <div>
-          <h3>{title}</h3>
+        <TodoTextContainer>
+          <TitleStyle>{title}</TitleStyle>
           <p>{content}</p>
           <time>{deadline}</time>
-        </div>
-        <div>
-          <button onClick={onClickDeleteBtn}>삭제</button>
-          <button onClick={onClickToggleBtn}>{isDone ? "취소" : "완료"}</button>
-        </div>
+        </TodoTextContainer>
+        <BtnContainer>
+          <BtnStyle
+            onClick={onClickDeleteBtn}
+            style={{ backgroundColor: "#FF6B6B" }}
+          >
+            삭제
+          </BtnStyle>
+          <BtnStyle
+            onClick={onClickToggleBtn}
+            style={{ backgroundColor: "#6BCB77" }}
+          >
+            {isDone ? "취소" : "완료"}
+          </BtnStyle>
+        </BtnContainer>
       </article>
-    </TodoCardItem>
+    </TodoCardContainer>
   );
 }
 export default TodoItem;
 
-const TodoCardItem = styled.li`
+const TodoCardContainer = styled.li`
   list-style-type: none;
   border: 5px solid rgb(155, 155, 161);
   border-radius: 10px;
@@ -37,4 +47,35 @@ const TodoCardItem = styled.li`
   width: 300px;
   padding: 20px;
   margin: 10px;
+
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.1);
+  }
+`;
+const TodoTextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+`;
+const TitleStyle = styled.h3`
+  font-size: x-large;
+  font-weight: 600;
+`;
+
+const BtnContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding-top: 10px;
+`;
+
+const BtnStyle = styled.button`
+  width: 50%;
+  border-color: transparent;
+  border-radius: 10px;
+  height: 2rem;
+  color: white;
+  /* font-weight: 600; */
 `;

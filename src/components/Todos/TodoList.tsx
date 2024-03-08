@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import { Todo } from "../../types/TodoType";
 import TodoItem from "./TodoItem";
 
@@ -11,10 +12,10 @@ interface TodoListProps {
 function TodoList({ todoTitle, todos, deleteTodo, toggleTodo }: TodoListProps) {
   return (
     <>
-      <h2>{todoTitle}</h2>
+      <ListTitle>{todoTitle}</ListTitle>
 
       <div>
-        <ul>
+        <TodoListContainer>
           {todos.map((todo) => (
             <TodoItem
               key={todo.id}
@@ -23,10 +24,23 @@ function TodoList({ todoTitle, todos, deleteTodo, toggleTodo }: TodoListProps) {
               toggleTodo={toggleTodo}
             />
           ))}
-        </ul>
+        </TodoListContainer>
       </div>
     </>
   );
 }
 
 export default TodoList;
+const ListTitle = styled.h2`
+  font-size: x-large;
+  font-weight: 800;
+`;
+
+const TodoListContainer = styled.ul`
+  gap: 20px;
+  padding: 10px;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+`;

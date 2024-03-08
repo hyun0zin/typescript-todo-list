@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import Header from "./\bcomponents/Layout/Header";
 import TodoForm from "./\bcomponents/Todos/TodoForm";
 import TodoList from "./\bcomponents/Todos/TodoList";
@@ -8,7 +9,7 @@ function App() {
     useTodos();
 
   return (
-    <main>
+    <MainContainer>
       <Header />
       <TodoForm addTodo={addTodo} />
       <TodoList
@@ -23,8 +24,15 @@ function App() {
         deleteTodo={deleteTodo}
         toggleTodo={toggleTodo}
       />
-    </main>
+    </MainContainer>
   );
 }
 
 export default App;
+
+const MainContainer = styled.main`
+  padding: 20px;
+
+  min-width: 800px;
+  max-width: 1200px;
+`;
