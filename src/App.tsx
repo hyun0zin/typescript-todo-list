@@ -7,8 +7,8 @@ function App() {
     <main>
       <Header />
       <TodoForm />
-      <TodoList />
-      <TodoList />
+      <TodoList todoTitle="Working...🔥" todos={[]} />
+      <TodoList todoTitle="Done🎉" todos={[]} />
     </main>
   );
 }
