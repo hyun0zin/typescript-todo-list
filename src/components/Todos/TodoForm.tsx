@@ -11,6 +11,7 @@ function TodoForm({ addTodo }: TodoFormProps) {
     const formData = new FormData(e.currentTarget);
     const title = formData.get("title") as string;
     const content = formData.get("content") as string;
+    const date = formData.get("date") as string;
 
     //빈 input 추가 막기
     if (!title.trim() && content) {
@@ -24,19 +25,20 @@ function TodoForm({ addTodo }: TodoFormProps) {
       return;
     }
 
-    // if (!deadline) {
-    //   alert("마감기한을 입력해주세요.");
-    //   return;
-    // }
+    if (!date) {
+      alert("마감기한을 입력해주세요.");
+      return;
+    }
     const todo: Todo = {
       id: crypto.randomUUID(),
       title,
       content,
       isDone: false,
-      deadline: new Date().toLocaleDateString(),
+      deadline: date,
     };
 
     addTodo(todo);
+    e.currentTarget.reset();
   };
 
   return (
@@ -52,7 +54,7 @@ function TodoForm({ addTodo }: TodoFormProps) {
           </InputTextStyle>
           <InputTextStyle>
             Deadline &nbsp;
-            <InputStyle type="date" style={{ width: "8rem" }} />
+            <InputStyle type="date" style={{ width: "8rem" }} name="date" />
           </InputTextStyle>
         </InputCotainer>
 

@@ -11,13 +11,26 @@ function TodoItem({ todo, deleteTodo, toggleTodo }: TodoItemProps) {
   const onClickDeleteBtn = () => deleteTodo(id);
   const onClickToggleBtn = () => toggleTodo(id);
 
+  /* Date type 변경하기 */
+  const numberOfDate: Date = new Date(deadline);
+  const options: Intl.DateTimeFormatOptions = {
+    weekday: "short",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+  const formattedDeadline: string = numberOfDate.toLocaleDateString(
+    "ko-KR",
+    options
+  );
+
   return (
     <TodoCardContainer>
       <article>
         <TodoTextContainer $isDone={isDone}>
           <TitleStyle>{title}</TitleStyle>
           <p>{content}</p>
-          <time>{deadline}</time>
+          <time>{formattedDeadline}</time>
         </TodoTextContainer>
         <BtnContainer>
           <BtnStyle
@@ -63,6 +76,7 @@ const TodoTextContainer = styled.div<{
 
   text-decoration: ${({ $isDone }) => ($isDone ? "line-through" : "none")};
 `;
+
 const TitleStyle = styled.h3`
   font-size: x-large;
   font-weight: 600;
