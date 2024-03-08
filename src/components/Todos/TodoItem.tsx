@@ -14,7 +14,7 @@ function TodoItem({ todo, deleteTodo, toggleTodo }: TodoItemProps) {
   return (
     <TodoCardContainer>
       <article>
-        <TodoTextContainer>
+        <TodoTextContainer $isDone={isDone}>
           <TitleStyle>{title}</TitleStyle>
           <p>{content}</p>
           <time>{deadline}</time>
@@ -54,11 +54,16 @@ const TodoCardContainer = styled.li`
     transform: scale(1.1);
   }
 `;
-const TodoTextContainer = styled.div`
+const TodoTextContainer = styled.div<{
+  $isDone: boolean;
+}>`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+
+  text-decoration: ${({ $isDone }) => ($isDone ? "line-through" : "none")};
 `;
+
 const TitleStyle = styled.h3`
   font-size: x-large;
   font-weight: 600;
