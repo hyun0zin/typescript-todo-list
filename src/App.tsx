@@ -9,26 +9,34 @@ function App() {
     useTodos();
 
   return (
-    <MainContainer>
-      <Header />
-      <TodoForm addTodo={addTodo} />
-      <TodoList
-        todoTitle="Working...🔥"
-        todos={inProgressTodos}
-        deleteTodo={deleteTodo}
-        toggleTodo={toggleTodo}
-      />
-      <TodoList
-        todoTitle="Done🎉"
-        todos={doneTodos}
-        deleteTodo={deleteTodo}
-        toggleTodo={toggleTodo}
-      />
-    </MainContainer>
+    <DisplayCenter>
+      <MainContainer>
+        <Header />
+        <TodoForm addTodo={addTodo} />
+        <TodoList
+          todoTitle="Working...🔥"
+          todos={inProgressTodos}
+          deleteTodo={deleteTodo}
+          toggleTodo={toggleTodo}
+        />
+        <TodoList
+          todoTitle="Done🎉"
+          todos={doneTodos}
+          deleteTodo={deleteTodo}
+          toggleTodo={toggleTodo}
+        />
+      </MainContainer>
+    </DisplayCenter>
   );
 }
 
 export default App;
+
+const DisplayCenter = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 const MainContainer = styled.main`
   padding: 20px;

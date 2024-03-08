@@ -52,7 +52,7 @@ function TodoForm({ addTodo }: TodoFormProps) {
           </InputTextStyle>
           <InputTextStyle>
             Deadline &nbsp;
-            <InputStyle type="date" style={{ width: "10rem" }} />
+            <InputStyle type="date" style={{ width: "8rem" }} />
           </InputTextStyle>
         </InputCotainer>
 
