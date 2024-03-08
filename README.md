@@ -1,4 +1,4 @@
-# 📝 To-do list 만들기
+# 📝 To-do list 만들기 with TS
 
 <img src="./src/assets/todo-list.png">
 
