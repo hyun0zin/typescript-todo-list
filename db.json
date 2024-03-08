@@ -1,0 +1,18 @@
+{
+  "todos": [
+    {
+      "id": "1",
+      "title": "Todo-list 만들기",
+      "content": "Typescript로 todo-list 만들기",
+      "isDone": false,
+      "deadline": "2024-03-08"
+    },
+    {
+      "id": "2",
+      "title": "알고리즘 문제풀기",
+      "content": "매일매일 한 문제씩 풀기",
+      "isDone": false,
+      "deadline": "2024-03-30"
+    }
+  ]
+}
