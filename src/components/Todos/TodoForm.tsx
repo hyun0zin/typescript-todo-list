@@ -1,6 +1,9 @@
 import { Todo } from "../../types/TodoType";
 
-function TodoForm() {
+interface TodoFormProps {
+  addTodo: (todo: Todo) => void;
+}
+function TodoForm({ addTodo }: TodoFormProps) {
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -16,7 +19,7 @@ function TodoForm() {
       deadline: new Date().toLocaleDateString(),
     };
 
-    console.log("todo", todo);
+    addTodo(todo);
   };
 
   return (
