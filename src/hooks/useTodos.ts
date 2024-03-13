@@ -9,7 +9,7 @@ export const useTodos = () => {
   // db.json 데이터 불러오기(GET)
   const fetchTodos = async () => {
     const { data } = await axios.get("http://localhost:4001/todos");
-    console.log("data", data);
+    // console.log("data", data);
     setTodos(data);
   };
 
