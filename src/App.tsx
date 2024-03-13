@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Header from "./\bcomponents/Layout/Header";
-import TodoForm from "./\bcomponents/Todos/TodoForm";
-import TodoList from "./\bcomponents/Todos/TodoList";
+import Header from "./components/Layout/Header";
+import TodoForm from "./components/Todos/TodoForm";
+import TodoList from "./components/Todos/TodoList";
 import { useTodos } from "./hooks/useTodos";
 
 function App() {

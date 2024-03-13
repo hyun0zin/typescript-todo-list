@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
-import todoReducer from "./todoReducer";
+import todoReducer from "../modules/todoSlice";
 
 const store = configureStore({
   reducer: {

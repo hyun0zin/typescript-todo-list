@@ -29,6 +29,7 @@ function TodoForm({ addTodo }: TodoFormProps) {
       alert("마감기한을 입력해주세요.");
       return;
     }
+
     const todo: Todo = {
       id: crypto.randomUUID(),
       title,
