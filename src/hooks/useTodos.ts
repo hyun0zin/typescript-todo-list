@@ -1,9 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Todo, doneTodo, inProgressTodo } from "../types/TodoType";
 import { sampleTodo } from "../assets/sampleTodo";
+import axios from "axios";
 
 export const useTodos = () => {
   const [todos, setTodos] = useState<Todo[]>([sampleTodo]);
+
+  // db.json 데이터 불러오기(GET)
+  const fetchTodos = async () => {
+    const { data } = await axios.get("http://localhost:4001/todos");
+    console.log("data", data);
+    setTodos(data);
+  };
+
+  useEffect(() => {
+    fetchTodos();
+  }, []);
 
   const inProgressTodos = todos.filter(
     (todo) => !todo.isDone
